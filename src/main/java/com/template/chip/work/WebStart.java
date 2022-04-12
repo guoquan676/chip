@@ -6,7 +6,6 @@ import com.alibaba.excel.write.metadata.WriteSheet;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import com.monitorjbl.xlsx.StreamingReader;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -28,12 +27,12 @@ import java.util.List;
 public class WebStart {
 
     public static void main(String[] args) throws Exception {
-        readExeclInfo();
+        matchingWeb();
     }
 
-    public static void readExeclInfo() throws Exception {
+    public static void matchingWeb() throws Exception {
 
-        InputStream in = new FileInputStream("C:\\Users\\EDZ\\Desktop\\data\\test.xlsx");
+        InputStream in = new FileInputStream("C:\\Users\\EDZ\\Desktop\\data\\北京成单客户地址-4.12(1).xlsx");
         Workbook wk = StreamingReader.builder().rowCacheSize(100).bufferSize(4096).open(in);
         Sheet sheet = wk.getSheetAt(0);
         List<WebUserInfo> webInfo = getWebInfo();
@@ -66,6 +65,7 @@ public class WebStart {
                 resultData.setCustomerName(name);
                 resultData.setCity(city);
                 resultData.setAddress(address);
+                boolean webFlag = true;
                 for (WebUserInfo e : webInfo) {
                     String departmentName = e.getDepartmentName();
                     String userName = e.getUserName();
@@ -76,13 +76,16 @@ public class WebStart {
                         resultData.setWebUserName(userName);
                         resultData.setDepartmentName(departmentName);
                         addressSuccessHiveWebList.add(resultData);
+                        webFlag = false;
                         break;
                     }
                 }
-                addressSuccessNoWebList.add(resultData);
+                if(webFlag){
+                    addressSuccessNoWebList.add(resultData);
+                }
             }
-            writeExcel(addressSuccessHiveWebList,addressBadList,addressSuccessNoWebList);
         }
+        writeExcel(addressSuccessHiveWebList,addressBadList,addressSuccessNoWebList);
     }
 
     public static List<WebUserInfo> getWebInfo() throws SQLException {
