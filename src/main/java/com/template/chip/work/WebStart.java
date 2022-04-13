@@ -32,7 +32,7 @@ public class WebStart {
 
     public static void matchingWeb() throws Exception {
 
-        InputStream in = new FileInputStream("C:\\Users\\EDZ\\Desktop\\data\\北京成单客户地址-4.12(1).xlsx");
+        InputStream in = new FileInputStream("C:\\Users\\EDZ\\Desktop\\data\\成单客户信息北京-0412.xlsx");
         Workbook wk = StreamingReader.builder().rowCacheSize(100).bufferSize(4096).open(in);
         Sheet sheet = wk.getSheetAt(0);
         List<WebUserInfo> webInfo = getWebInfo();
@@ -47,8 +47,8 @@ public class WebStart {
                 continue;
             }
             String name = row.getCell(0).getStringCellValue();
-            String city = row.getCell(7).getStringCellValue();
-            String address = row.getCell(8).getStringCellValue();
+            String city = row.getCell(1).getStringCellValue();
+            String address = row.getCell(2).getStringCellValue();
             JSONObject object = getLonLat(address, city);
             if (object.getString("infocode").equals("30001")) {
                 ResultData resultData = new ResultData();
