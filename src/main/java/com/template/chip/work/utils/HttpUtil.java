@@ -1,4 +1,4 @@
-package com.template.chip.work;
+package com.template.chip.work.utils;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;

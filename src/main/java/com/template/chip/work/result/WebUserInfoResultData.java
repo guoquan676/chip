@@ -1,4 +1,6 @@
-package com.template.chip.work;
+package com.template.chip.work.result;
+
+import com.template.chip.work.utils.Gps2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,10 +9,20 @@ import java.util.List;
  * @author guozhenquan
  * @date 2022年04月12日 16:37
  */
-public class WebUserInfo {
+public class WebUserInfoResultData {
     private String webName;
     private String userName;
     private String departmentName;
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     List<Gps2> locations = new ArrayList<>();
 
     public String getWebName() {

@@ -1,4 +1,4 @@
-package com.template.chip.work;
+package com.template.chip.work.utils;
 
 import java.io.Serializable;
 import java.util.Objects;
