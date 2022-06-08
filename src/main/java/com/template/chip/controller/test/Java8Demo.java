@@ -95,7 +95,7 @@ public class Java8Demo {
         Integer integer = integerCompletableFuture2.get();
         List<String> list = Lists.newArrayList();
         List<String> collect = list.stream().sorted(Comparator.comparingInt(String::length)).collect(Collectors.toList());
-        List<String> collect1 = list.stream().sorted(Comparator.comparingInt(String::length)).collect(Collectors.toList());
+        List<String> collect2 = list.stream().sorted(Comparator.comparingInt(String::length)).collect(Collectors.toList());
 
     }
 
