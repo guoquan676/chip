@@ -2,6 +2,7 @@ package com.template.chip.work;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.http.HttpRequest;
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
 import com.google.common.collect.Lists;
@@ -40,7 +41,7 @@ public class FixWebMap {
     public static void main(String[] args) throws FileNotFoundException, SQLException {
         List<WebUserInfoResultData> webInfo = WebUtils.getWebInfo();
         Map<String, WebUserInfoResultData> collect = webInfo.stream().collect(Collectors.toMap(WebUserInfoResultData::getWebName, x -> x, (v1, v2) -> v2));
-        ExcelReader reader = ExcelUtil.getReader("C:\\Users\\EDZ\\Desktop\\苏州20220512200038.xlsx",0);
+        ExcelReader reader = ExcelUtil.getReader("C:\\Users\\EDZ\\Desktop\\网格\\20220517\\苏州(新)20220517145509.xlsx",0);
         List<ExcelGps> readAll = reader.readAll(ExcelGps.class);
         Map<String, List<ExcelGps>> collect1 = readAll.stream().collect(Collectors.groupingBy(ExcelGps::getName, Collectors.toList()));
 

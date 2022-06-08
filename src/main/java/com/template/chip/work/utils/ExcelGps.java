@@ -27,6 +27,6 @@ public class ExcelGps {
 
     private static String subName(String a) {
         int i = a.lastIndexOf("-");
-        return a.substring(0,i);
+        return  a.substring(0,i);
     }
 }
