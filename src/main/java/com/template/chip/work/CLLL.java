@@ -32,10 +32,10 @@ public class CLLL {
 
 //       private static final String INSERT_SQL = "INSERT INTO `t_scene_web`( `title` , `province_id` , `city_id` , `district_id` , `area_info` , `area_desc` , `quota` , `states` , `crm_city_id` , `area_zoom` , `area_center` , `created_user` , `created_time` , `modified_user` , `modified_time` , `gross_area` , `remark` , `new_area_info`) \n" +
 //           "VALUES( '%s' , '110000' , '110100' , '110105' , '' , '北京市' , '0' , '1' , '131' , '18' , '116.480927,39.996471' , '6062' , now() , '6062' , now() , '0.00' , '星罗地图' , '%s');";
-       private static final String INSERT_SQL = "INSERT INTO `t_scene_web`( `title` , `province_id` , `city_id` , `district_id` , `area_info` , `area_desc` , `quota` , `states` , `crm_city_id` , `area_zoom` , `area_center` , `created_user` , `created_time` , `modified_user` , `modified_time` , `gross_area` , `remark` , `new_area_info`) \n" +
-           "VALUES( '%s' , '330000' , '330100' , '330106' , '' , '杭州市' , '0' , '1' , '179' , '18' , '116.480927,39.996471' , '6062' , now() , '6062' , now() , '0.00' , '星罗地图' , '%s');";
-//    private static final String INSERT_SQL = "INSERT INTO `t_scene_web`( `title` , `province_id` , `city_id` , `district_id` , `area_info` , `area_desc` , `quota` , `states` , `crm_city_id` , `area_zoom` , `area_center` , `created_user` , `created_time` , `modified_user` , `modified_time` , `gross_area` , `remark` , `new_area_info`) \n" +
-//            "VALUES( '%s' , '320000' , '320500' , '320506' , '' , '苏州市' , '0' , '1' , '224' , '18' , '116.480927,39.996471' , '6062' , now() , '6062' , now() , '0.00' , '星罗地图' , '%s');";
+//       private static final String INSERT_SQL = "INSERT INTO `t_scene_web`( `title` , `province_id` , `city_id` , `district_id` , `area_info` , `area_desc` , `quota` , `states` , `crm_city_id` , `area_zoom` , `area_center` , `created_user` , `created_time` , `modified_user` , `modified_time` , `gross_area` , `remark` , `new_area_info`) \n" +
+//           "VALUES( '%s' , '330000' , '330100' , '330106' , '' , '杭州市' , '0' , '1' , '179' , '18' , '116.480927,39.996471' , '6062' , now() , '6062' , now() , '0.00' , '星罗地图' , '%s');";
+    private static final String INSERT_SQL = "INSERT INTO `t_scene_web`( `title` , `province_id` , `city_id` , `district_id` , `area_info` , `area_desc` , `quota` , `states` , `crm_city_id` , `area_zoom` , `area_center` , `created_user` , `created_time` , `modified_user` , `modified_time` , `gross_area` , `remark` , `new_area_info`) \n" +
+            "VALUES( '%s' , '320000' , '320500' , '320506' , '' , '苏州市' , '0' , '1' , '224' , '18' , '116.480927,39.996471' , '6062' , now() , '6062' , now() , '0.00' , '星罗地图' , '%s');";
 //       private static final String INSERT_SQL = "INSERT INTO `t_scene_web`( `title` , `province_id` , `city_id` , `district_id` , `area_info` , `area_desc` , `quota` , `states` , `crm_city_id` , `area_zoom` , `area_center` , `created_user` , `created_time` , `modified_user` , `modified_time` , `gross_area` , `remark` , `new_area_info`) \n" +
 //           "VALUES( '%s' , '340000' , '340100' , '340104' , '' , '合肥市' , '0' , '1' , '127' , '18' , '116.480927,39.996471' , '6062' , now() , '6062' , now() , '0.00' , '星罗地图' , '%s');";
     private static final String UPDATE_SQL = "UPDATE t_scene_web SET new_area_info = '%s',modified_time = '%s' WHERE id = %s;";
@@ -70,12 +70,12 @@ public class CLLL {
         Map m3 = new HashMap<>();m3.put("city","合肥");m3.put("url","https://www.ldmap.net/service/map/feature/extend?x1=-200&y1=-200&x2=200&y2=200&mapid=2fc3a5a0-8d2f-419b-95f1-d9106f9962f6&feature_type=-1&_=1649396861865");
         Map m4 = new HashMap<>();m4.put("city","苏州");m4.put("url","https://www.ldmap.net/service/map/feature/extend?x1=-200&y1=-200&x2=200&y2=200&mapid=f4fbd6cf-0b89-468d-97b7-ab74f508509b&feature_type=-1&_=1649397352445");
 
-        mList.add(m2);//mList.add(m3);mList.add(m4);
+        mList.add(m4);//mList.add(m3);mList.add(m4);
 
         for (Map mm:mList) {
 
             String url = mm.get("url").toString();
-            String cookie = " ASP.NET_SessionId=iytybnrxwdrywq1cfhmrz1jh; Hm_lvt_04a92f5555d5369068446e62dd15a5c8=1652696682; type=0; v5=0; v1=15810004906; v2=b904d793-af9b-4d3c-ab76-f92465d9607a; v3=%u81EA%u884C%u8F66%u54C7%u554A; v4=0; Hm_lpvt_04a92f5555d5369068446e62dd15a5c8=1653535053; SECKEY_ABVK=K2jU30vxGjm9syHjoBJ7lu2sQQA87zzgN+TNxKn2TN4%3D; BMAP_SECKEY=vCRSbuv0oGAvqvQKaCDON7jdeCLE9Ah3GoM3fOrZTEXIq1LZJolnby4F-gXvLeauUHANqGnfSSklm9pi98VAQauS-Nvqdgn5tV_CfTzp34P2Yj0fPf6fgnWTknsr9jd03i4tgIFPBYyRwNAYOrNtbXqZL7GfJc5FuoImjXKs-oIwT9YZN8WDC0yS1d_QAAn7";
+            String cookie = " ASP.NET_SessionId=iytybnrxwdrywq1cfhmrz1jh; type=0; v5=0; Hm_lvt_04a92f5555d5369068446e62dd15a5c8=1656582347; v1=15810004906; v2=b904d793-af9b-4d3c-ab76-f92465d9607a; v3=%u81EA%u884C%u8F66%u54C7%u554A; v4=0; Hm_lpvt_04a92f5555d5369068446e62dd15a5c8=1656917773; SECKEY_ABVK=B+3qH9F9LzG7/DEdKnJ0Kz72fswvqci6BxDdk6df+q4%3D; BMAP_SECKEY=x0iCTbO4GKIIa8U1u6lbCvPIWHxB1Xvy7BimEcU0TNqbWZqNN4T5UIyJkN0UVAhAhAgPeWY3oowsLWtZ56cP5_D_wufFz6QKHnutZQpror5MMmErMKlSh6Lo9ganl4iLKY40lXMaOVw5oJTa1VPDrNWUXR_ooMcvR4MP3_BnWTEjED4FHiRliKpkHmcNojEb";
             String city = mm.get("city").toString();
             JSONObject object =  JSONObject.parseObject(HttpUtil.doGet(url,cookie));
 

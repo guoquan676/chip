@@ -32,16 +32,16 @@ public class FixWebMap {
 
 //   private static final String INSERT_SQL = "INSERT INTO `t_scene_web`( `title` , `province_id` , `city_id` , `district_id` , `area_info` , `area_desc` , `quota` , `states` , `crm_city_id` , `area_zoom` , `area_center` , `created_user` , `created_time` , `modified_user` , `modified_time` , `gross_area` , `remark` , `new_area_info`) \n" +
 //           "VALUES( '%s' , '330000' , '330100' , '330106' , '' , '杭州市' , '0' , '1' , '179' , '18' , '116.480927,39.996471' , '6062' , now() , '6062' , now() , '0.00' , '星罗地图' , '%s');";
-   private static final String INSERT_SQL = "INSERT INTO `t_scene_web`( `title` , `province_id` , `city_id` , `district_id` , `area_info` , `area_desc` , `quota` , `states` , `crm_city_id` , `area_zoom` , `area_center` , `created_user` , `created_time` , `modified_user` , `modified_time` , `gross_area` , `remark` , `new_area_info`) \n" +
-           "VALUES( '%s' , '320000' , '320500' , '320506' , '' , '苏州市' , '0' , '1' , '224' , '18' , '116.480927,39.996471' , '6062' , now() , '6062' , now() , '0.00' , '星罗地图' , '%s');";
 //   private static final String INSERT_SQL = "INSERT INTO `t_scene_web`( `title` , `province_id` , `city_id` , `district_id` , `area_info` , `area_desc` , `quota` , `states` , `crm_city_id` , `area_zoom` , `area_center` , `created_user` , `created_time` , `modified_user` , `modified_time` , `gross_area` , `remark` , `new_area_info`) \n" +
-//           "VALUES( '%s' , '340000' , '340100' , '340104' , '' , '合肥市' , '0' , '1' , '127' , '18' , '116.480927,39.996471' , '6062' , now() , '6062' , now() , '0.00' , '星罗地图' , '%s');";
+//           "VALUES( '%s' , '320000' , '320500' , '320506' , '' , '苏州市' , '0' , '1' , '224' , '18' , '116.480927,39.996471' , '6062' , now() , '6062' , now() , '0.00' , '星罗地图' , '%s');";
+   private static final String INSERT_SQL = "INSERT INTO `t_scene_web`( `title` , `province_id` , `city_id` , `district_id` , `area_info` , `area_desc` , `quota` , `states` , `crm_city_id` , `area_zoom` , `area_center` , `created_user` , `created_time` , `modified_user` , `modified_time` , `gross_area` , `remark` , `new_area_info`) \n" +
+           "VALUES( '%s' , '340000' , '340100' , '340104' , '' , '合肥市' , '0' , '1' , '127' , '18' , '116.480927,39.996471' , '6062' , now() , '6062' , now() , '0.00' , '星罗地图' , '%s');";
    private static final String UPDATE_SQL = "UPDATE t_scene_web SET new_area_info = '%s',modified_time = '%s' WHERE id = %s;";
 
     public static void main(String[] args) throws FileNotFoundException, SQLException {
         List<WebUserInfoResultData> webInfo = WebUtils.getWebInfo();
         Map<String, WebUserInfoResultData> collect = webInfo.stream().collect(Collectors.toMap(WebUserInfoResultData::getWebName, x -> x, (v1, v2) -> v2));
-        ExcelReader reader = ExcelUtil.getReader("C:\\Users\\EDZ\\Desktop\\网格\\20220517\\苏州(新)20220517145509.xlsx",0);
+        ExcelReader reader = ExcelUtil.getReader("C:\\Users\\EDZ\\Desktop\\合肥(新)20220629140016.xlsx",0);
         List<ExcelGps> readAll = reader.readAll(ExcelGps.class);
         Map<String, List<ExcelGps>> collect1 = readAll.stream().collect(Collectors.groupingBy(ExcelGps::getName, Collectors.toList()));
 
